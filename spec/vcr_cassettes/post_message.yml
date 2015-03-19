@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://hxxx.com/xxx
+    body:
+      encoding: US-ASCII
+      string: payload=%7B%22channel%22%3A%22%40korki%22%2C%22username%22%3A%22Availibilty%22%2C%22icon_emoji%22%3A%22%3Aghost%3A%22%2C%22attachments%22%3A%5B%7B%22author_name%22%3A%22Bobby+Tables%22%2C%22author_link%22%3A%22http%3A%2F%2Fflickr.com%2Fbobby%2F%22%2C%22author_icon%22%3A%22http%3A%2F%2Fflickr.com%2Ficons%2Fbobby.jpg%22%2C%22title%22%3A%22Slack+API+Documentation%22%2C%22title_link%22%3A%22https%3A%2F%2Fapi.slack.com%2F%22%2C%22fallback%22%3A%22Everything+looks+peachy%22%2C%22text%22%3A%22Everything+looks+peachy%22%2C%22color%22%3A%22good%22%2C%22fields%22%3A%5B%7B%22title%22%3A%22Priority%22%2C%22value%22%3A%22High%22%2C%22short%22%3Afalse%7D%5D%7D%5D%2C%22text%22%3A%22test+test+test%22%7D
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Type:
+      - text/html
+      Date:
+      - Thu, 19 Mar 2015 00:13:35 GMT
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Vary:
+      - Accept-Encoding
+      X-Frame-Options:
+      - SAMEORIGIN
+      Content-Length:
+      - '22'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: ok
+    http_version:
+  recorded_at: Thu, 19 Mar 2015 00:13:36 GMT
+recorded_with: VCR 2.9.3

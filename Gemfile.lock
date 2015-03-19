@@ -1,0 +1,109 @@
+GIT
+  remote: git://github.com/korki/json_logger.git
+  revision: ddef48db8f1d7bc914d864c4e33d5f0c1fb0eb3a
+  specs:
+    json_logger (0.0.1)
+      json (~> 1.8.1)
+
+GIT
+  remote: git://github.com/spree/endpoint_base.git
+  revision: f9e595fbf41c1509a4afc58ab805a7b0e5c74a51
+  specs:
+    endpoint_base (0.3)
+      activesupport
+      jbuilder
+      json
+
+PATH
+  remote: .
+  specs:
+    slack_endpoint (0.0.1)
+      airbrake
+      endpoint_base
+      slack-notifier
+      tilt-jbuilder
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activesupport (4.2.0)
+      i18n (~> 0.7)
+      json (~> 1.7, >= 1.7.7)
+      minitest (~> 5.1)
+      thread_safe (~> 0.3, >= 0.3.4)
+      tzinfo (~> 1.1)
+    addressable (2.3.7)
+    airbrake (4.1.0)
+      builder
+      multi_json
+    backports (3.6.4)
+    builder (3.2.2)
+    crack (0.4.2)
+      safe_yaml (~> 1.0.0)
+    diff-lcs (1.2.5)
+    i18n (0.7.0)
+    jbuilder (2.2.11)
+      activesupport (>= 3.0.0, < 5)
+      multi_json (~> 1.2)
+    json (1.8.2)
+    minitest (5.5.1)
+    multi_json (1.11.0)
+    rack (1.6.0)
+    rack-protection (1.5.3)
+      rack
+    rack-test (0.6.3)
+      rack (>= 1.0)
+    rake (10.4.2)
+    rspec (3.2.0)
+      rspec-core (~> 3.2.0)
+      rspec-expectations (~> 3.2.0)
+      rspec-mocks (~> 3.2.0)
+    rspec-core (3.2.2)
+      rspec-support (~> 3.2.0)
+    rspec-expectations (3.2.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.2.0)
+    rspec-mocks (3.2.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.2.0)
+    rspec-support (3.2.2)
+    safe_yaml (1.0.4)
+    sinatra (1.4.5)
+      rack (~> 1.4)
+      rack-protection (~> 1.4)
+      tilt (~> 1.3, >= 1.3.4)
+    sinatra-contrib (1.4.2)
+      backports (>= 2.0)
+      multi_json
+      rack-protection
+      rack-test
+      sinatra (~> 1.4.0)
+      tilt (~> 1.3)
+    slack-notifier (1.1.0)
+    thread_safe (0.3.5)
+    tilt (1.4.1)
+    tilt-jbuilder (0.6.1)
+      jbuilder
+      tilt (<= 1.5.0)
+    tzinfo (1.2.2)
+      thread_safe (~> 0.1)
+    vcr (2.9.3)
+    webmock (1.20.4)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (~> 1.5)
+  endpoint_base!
+  json_logger!
+  rack-test
+  rake
+  rspec
+  sinatra
+  sinatra-contrib
+  slack_endpoint!
+  vcr
+  webmock

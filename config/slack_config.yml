@@ -1,0 +1,7 @@
+development:
+  endpoint_key: '123'
+  json_logs_path: ./log/slack_endpoint.json.log
+
+test:
+  endpoint_key: '123'
+  json_logs_path: ./log/slack_endpoint.json.log
