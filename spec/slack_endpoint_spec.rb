@@ -26,7 +26,7 @@ describe SlackEndpoint::Base do
               value: "High",
               short: false
             }
-          ],
+          ]
         }
       },
       parameters: {
