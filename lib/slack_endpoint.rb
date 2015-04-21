@@ -5,6 +5,11 @@ require 'endpoint_base/sinatra'
 require 'airbrake'
 require 'slack-notifier'
 
+Airbrake.configure do |config|
+  config.api_key = ENV['AIRBRAKE_API_KEY']
+  config.environment_name = ENV['RACK_ENV'] || "development"
+end
+
 module SlackEndpoint
   class Base < EndpointBase::Sinatra::Base
     use Airbrake::Rack
