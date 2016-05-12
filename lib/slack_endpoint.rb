@@ -2,17 +2,18 @@ require 'sinatra'
 require "sinatra/config_file"
 require 'endpoint_base'
 require 'endpoint_base/sinatra'
-require 'airbrake'
+require 'sentry-raven'
 require 'slack-notifier'
 
-Airbrake.configure do |config|
-  config.api_key = ENV['AIRBRAKE_API_KEY']
-  config.environment_name = ENV['RACK_ENV'] || "development"
+if ['staging', 'production'].include?(ENV['RACK_ENV'])
+  Raven.configure do |config|
+    config.tags = { environment: ENV['RACK_ENV'], endpoint: 'slack_endpoint' }
+  end
 end
 
 module SlackEndpoint
   class Base < EndpointBase::Sinatra::Base
-    use Airbrake::Rack
+    use Raven::Rack if ['staging', 'production'].include?(ENV['RACK_ENV'])
     enable :raise_errors
     enable :logging
     set :environments, %w{development test production staging}
