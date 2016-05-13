@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency 'airbrake'
+  spec.add_dependency 'sentry-raven'
   spec.add_dependency 'endpoint_base'
   spec.add_dependency 'tilt-jbuilder'
   spec.add_dependency 'slack-notifier'
