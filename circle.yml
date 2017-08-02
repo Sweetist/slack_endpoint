@@ -1,0 +1,27 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  pre:
+    - docker info
+    - pip install --upgrade pip
+    - pip install --upgrade --user awscli
+    - eval `aws ecr get-login --region eu-west-1`
+
+test:
+  override:
+    - bundle exec rake build
+
+deployment:
+  docker:
+    branch: [staging,production]
+    commands:
+           # - docker pull 213273172953.dkr.ecr.eu-west-1.amazonaws.com/purchasing:latest
+      - docker build -f Dockerfile -t 213273172953.dkr.ecr.eu-west-1.amazonaws.com/asset_importer:$CIRCLE_BRANCH-$CIRCLE_SHA1 .
+      #- docker tag peoplevox_utils:$CIRCLE_SHA1 213273172953.dkr.ecr.eu-west-1.amazonaws.com/purchasing:$CIRCLE_SHA1
+      # - docker push 213273172953.dkr.ecr.eu-west-1.amazonaws.com/
+      # - docker tag 213273172953.dkr.ecr.eu-west-1.amazonaws.com/purchasing:latest 213273172953.dkr.ecr.eu-west-1.amazonaws.com/purchasing:$CIRCLE_SHA1
+      - docker push 213273172953.dkr.ecr.eu-west-1.amazonaws.com/asset_importer:$CIRCLE_BRANCH-$CIRCLE_SHA1
+      - aws cloudformation deploy --template-file asset-importer.yaml --stack-name asset-importer-$CIRCLE_BRANCH --parameter-overrides DockerImage=213273172953.dkr.ecr.eu-west-1.amazonaws.com/asset_importer:$CIRCLE_BRANCH-$CIRCLE_SHA1 --capabilities CAPABILITY_NAMED_IAM
+
