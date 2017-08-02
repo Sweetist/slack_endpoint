@@ -1,5 +1,2 @@
-development:
-  endpoint_key: '123'
-
-test:
-  endpoint_key: '123'
+<%= ENV['RACK_ENV'] || 'development' %>:
+  endpoint_key: <%= ENV['ENDPOINT_KEY'] || '123' %>
